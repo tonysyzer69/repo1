@@ -8,4 +8,4 @@ This is the repository for the Terraform Templates of Foster City and Production
 * Install Terraform binary to your desktop 
 
 # Usage 
-You can check out the SOP here
+You can check out the SOP [here](https://jira.zooxlabs.com/secure/Dashboard.jspa/)

@@ -1,11 +1,11 @@
-#Automation and Orchestration IT Infrastructure with Terraform
+# Automation and Orchestration IT Infrastructure with Terraform
 
 This is the repository for the Terraform Templates of Foster City and Production Vcenter.    
 
 
-#Setup   
+# Setup   
 * Clone this repo to your desktop 
 * Install Terraform binary to your desktop 
 
-#Usage 
+# Usage 
 You can check out the SOP here

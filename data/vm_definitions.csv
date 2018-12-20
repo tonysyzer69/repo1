@@ -1,0 +1,11 @@
+## [1]Server Name,[2]IP Address,[3]cpu,[4]memory,[5]disk(GB),[6]netmask,[7]gateway,[8]ostemplate,[9]datastore,[10]resource pool,[11]Network,[12]datacenter,[13]esxi,[14]Owner,[15]Purpose
+#3dx-ind01-18dev,10.65.4.151,4,32768,100,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#3dx-app01-18dev,10.65.4.152,4,32768,200,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#3dx-fil01-18dev,10.65.4.153,4,32768,100,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#3dx-sql01-18dev,10.65.4.154,4,32768,100,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#3dx-ind01-18uat,10.65.4.155,8,32768,100,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#3dx-app01-18uat,10.65.4.156,8,65536,200,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#3dx-sql01-18uat,10.65.4.157,4,32768,100,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#3dx-fil01-18uat,10.65.4.158,4,32768,100,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#sun-hap3dxdev01,10.65.4.174,1,8192,40,22,10.65.4.1,TMPL-ubuntu-16,SUN-QNAS01-GP,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+#sun-hap3dxdev02,10.65.4.175,1,8192,40,22,10.65.4.1,TMPL-ubuntu-16,SUN-QNAS01-GP,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com

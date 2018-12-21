@@ -9,3 +9,4 @@
 #3dx-fil01-18uat,10.65.4.158,4,32768,100,22,10.65.4.1,TMPL-win-ws2012r2-20181008,SUN-QNAS01A-3DX-TEST,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
 #sun-hap3dxdev01,10.65.4.174,1,8192,40,22,10.65.4.1,TMPL-ubuntu-16,SUN-QNAS01-GP,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
 #sun-hap3dxdev02,10.65.4.175,1,8192,40,22,10.65.4.1,TMPL-ubuntu-16,SUN-QNAS01-GP,PROD-A,VM Network,Sunnyvale,sun-q01-b.zooxlabs.com
+sun-tla02,10.65.4.7,4,4096,40,22,10.65.4.1,TMPL-ubuntu1804-2018dec,SUN-QNAS01-GP,PROD-A,VM Network,Sunnyvale,,Unknown,Unknown

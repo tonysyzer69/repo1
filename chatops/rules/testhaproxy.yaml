@@ -1,0 +1,16 @@
+---
+name: testhaproxy
+pack: chatops
+description: Sample rule
+enabled: true
+trigger:
+    type: "core.st2.generic.notifytrigger"
+criteria:
+  trigger.action_ref:
+    type: "equals"
+    pattern: "chatops.testhaproxy"
+action:
+    ref: chatops.testhaproxy
+    parameters:
+      slackcmd: ""
+      user: "{{trigger.data.user}}"

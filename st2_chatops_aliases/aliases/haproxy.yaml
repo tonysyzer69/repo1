@@ -1,0 +1,7 @@
+---
+name: haproxy
+pack: st2_chatops_aliases
+description: "haproxy enable/disable backend service"
+action_ref: "st2_chatops_aliases.haproxy"
+formats:
+  - "haproxy {{ mode }} {{ backend }}"

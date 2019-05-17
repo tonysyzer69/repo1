@@ -1,0 +1,16 @@
+---
+name: haproxy
+pack: st2_chatops_aliases
+runner_type: "local-shell-script"
+description: haproxy service enable/disable
+enabled: true
+entry_point: haproxy.sh
+parameters:
+  mode:
+    type: "string"
+    description: "enable/disable"
+    required: false
+  backend:
+    type: "string"
+    description: "backend host"
+    required: false

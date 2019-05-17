@@ -1,0 +1,12 @@
+### Place information about your pack version here.
+---
+ref: st2_chatops_aliases
+name: st2_chatops_aliases
+description: Pack with sample Terraform ChatOps aliases
+keywords:
+  - chatops
+  - aliases
+  - terraform
+version: 0.2.0
+author: tla
+email: tony.sy@hotmail.com

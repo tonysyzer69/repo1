@@ -1,6 +1,0 @@
-add datadisk to storage_map.csv
-fos-secret01,2,100:200,fos-qnas01-esx-ds01,ext4,data
-add datadisk to storage_map.csv
-fos-vault02,1,100,fos-qnas01-esx-ds01,ext4,data
-add datadisk to storage_map.csv
-fos-vault03,1,100,fos-qnas01-esx-ds01,ext4,data

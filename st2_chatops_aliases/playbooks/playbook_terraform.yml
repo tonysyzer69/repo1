@@ -1,0 +1,151 @@
+---
+- hosts: 127.0.0.1
+  gather_facts: no
+  connection: local
+  vars:
+     consul_token: "{{ lookup('file', '/etc/st2/keys/consul_token') }}"
+  tasks:
+
+    - name: Clone itservice
+      git:
+        repo: git@git.zooxlabs.com:zooxco/itservice.git
+        version: master
+        dest: /home/stanley/git/itservice
+        accept_hostkey: yes
+      register: output_plan_git_clone
+      tags:
+        - git-clone
+
+    - debug: msg="{{ output_plan_git_clone.stdout }}"
+      tags:
+        - git-clone
+
+    - name: git pull master
+      command: git pull
+      register: output_plan_git_pull
+      args:
+        chdir: "/home/stanley/git/itservice"
+      tags:
+        - git-pull
+        - fos-gridvcenter01
+        - fos-vcenter01
+        - sun-vcenter01
+
+    - name: unlock state file
+      shell: |
+        git-crypt unlock ~/.keys/terraform-vsphere.pem
+      register: output_unlock
+      args:
+        chdir: "/home/stanley/git/itservice/terraform-vsphere"
+      tags:
+        - git-clone
+
+    - debug: msg="{{ output_unlock.stdout }}"
+      tags:
+        - git-clone
+
+    - debug: msg="{{ output_plan_git_pull.stdout }}"
+      tags:
+        - git-pull
+        - fos-gridvcenter01
+        - fos-vcenter01
+        - sun-vcenter01
+
+    - name: Running Terraform plan fos-gridvcenter01
+      shell: |
+        export CONSUL_HTTP_TOKEN={{ consul_token }}
+        terraform plan -var-file=/etc/st2/keys/token.auto.tfvars|landscape
+      register: output_plan_fos_gridvcenter01
+      args:
+        chdir: "/home/stanley/git/itservice/terraform-vsphere/fos-gridvcenter01/lib"
+      tags:
+        - fos-gridvcenter01
+      when: commandoption == "plan"
+
+    - debug: msg="{{ output_plan_fos_gridvcenter01.stdout }}"
+      tags:
+        - fos-gridvcenter01
+      when: commandoption == "plan"
+
+    - name: Running Terraform apply fos-gridvcenter01
+      shell: |
+        export CONSUL_HTTP_TOKEN={{ consul_token }}
+        terraform apply -var-file=/etc/st2/keys/token.auto.tfvars -auto-approve
+      register: output_apply_fos_gridvcenter01
+      args:
+        chdir: "/home/stanley/git/itservice/terraform-vsphere/fos-gridvcenter01/lib"
+      tags:
+        - fos-gridvcenter01
+      when: commandoption == "apply"
+
+    - debug: msg="{{ output_apply_fos_gridvcenter01.stdout }}"
+      tags:
+        - fos-gridvcenter01
+      when: commandoption == "apply"
+
+    - name: Running Terraform plan fos-vcenter01
+      shell: |
+        export CONSUL_HTTP_TOKEN={{ consul_token }} 
+        terraform plan -var-file=/etc/st2/keys/token.auto.tfvars|landscape
+      register: output_plan_fos_vcenter01
+      args:
+        chdir: "/home/stanley/git/itservice/terraform-vsphere/fos-vcenter01/lib"
+      tags:
+        - fos-vcenter01
+      when: commandoption == "plan"
+
+    - debug: msg="{{ output_plan_fos_vcenter01.stdout }}"
+      tags:
+        - fos-vcenter01
+      when: commandoption == "plan"
+
+
+    - name: Running Terraform apply fos-vcenter01
+      ignore_errors: yes
+      shell: |
+        export CONSUL_HTTP_TOKEN={{ consul_token }}
+        terraform apply -var-file=/etc/st2/keys/token.auto.tfvars -auto-approve
+      register: output_apply_fos_vcenter01
+      args:
+        chdir: "/home/stanley/git/itservice/terraform-vsphere/fos-vcenter01/lib"
+      tags:
+        - fos-vcenter01
+      when: commandoption == "apply"
+
+    - debug: msg="{{ output_apply_fos_vcenter01.stdout }}"
+      tags:
+        - fos-vcenter01
+      when: commandoption == "apply"
+
+    - name: Running Terraform plan sun-vcenter01
+      shell: |
+        export CONSUL_HTTP_TOKEN={{ consul_token }}
+        terraform plan -var-file=/etc/st2/keys/token.auto.tfvars|landscape
+      register: output_plan_sun_vcenter01
+      args:
+        chdir: "/home/stanley/git/itservice/terraform-vsphere/sun-vcenter01/lib"
+      tags:
+        - sun-vcenter01
+      when: commandoption == "plan"
+
+    - debug: msg="{{ output_plan_sun_vcenter01.stdout }}"
+      tags:
+        - sun-vcenter01
+      when: commandoption == "plan"
+
+
+    - name: Running Terraform apply sun-vcenter01
+      shell: |
+        export CONSUL_HTTP_TOKEN={{ consul_token }}
+        terraform apply -var-file=/etc/st2/keys/token.auto.tfvars -auto-approve
+      register: output_apply_sun_vcenter01
+      args:
+        chdir: "/home/stanley/git/itservice/terraform-vsphere/sun-vcenter01/lib"
+      tags:
+        - sun-vcenter01
+      when: commandoption == "apply"
+
+    - debug: msg="{{ output_apply_sun_vcenter01.stdout }}"
+      tags:
+        - sun-vcenter01
+      when: commandoption == "apply"

@@ -1,0 +1,34 @@
+---
+name: terraform
+description: run terraform
+runner_type: local-shell-cmd
+entry_point: ""
+enabled: true
+parameters:
+  sudo:
+    immutable: true
+    default: true
+  kwarg_op:
+    immutable: true
+  timeout:
+    default: 6000
+  cmd:
+    description: "Command to run"
+    immutable: true
+    default: "/usr/bin/ansible-playbook /opt/stackstorm/packs/${ST2_ACTION_PACK_NAME}/playbooks/playbook_terraform.yml --extra-vars='vcenter={{vcenter}} commandoption={{commandoption}}' --tags {{vcenter}}"
+  vcenter:
+    description: "Vsphere vcenter"
+    type: string
+    required: true
+  commandoption:
+    description: "plan or apply"
+    type: string
+    required: true
+  host:
+    description: "host"
+    type: string
+    required: false
+  role:
+    description: "role"
+    type: string
+    required: false

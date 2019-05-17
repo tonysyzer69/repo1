@@ -1,0 +1,18 @@
+---
+name: chatops.device_lifecycle
+action_ref: st2_chatops_aliases.device_lifecycle
+description: Device life cycle event
+formats:
+  - display: "device_lifecycle <servername> <lifecycle> <user>"
+    representation:
+      - "device_lifecycle {{ servername }} {{ lifecycle }} {{ user }}"
+ack:
+  enabled: false
+result:
+  format: |
+    {% if execution.status == 'succeeded' %}Here is your output: ```{{ execution.result.stdout }}``` {~}{% else %}
+    Sorry, no ouput this time {~}
+    Exit Code: `{{ execution.result.return_code }}`
+    Stderr: ```{{ execution.result.stderr }}```
+    Hint: Make sure `device_lifecycle` utility is installed.
+    {% endif %}

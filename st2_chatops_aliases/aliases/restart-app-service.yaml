@@ -1,7 +1,0 @@
----
-name: restart-app-service
-pack: st2_chatops_aliases
-description: "restart-app-service enable/disable app service"
-action_ref: "st2_chatops_aliases.restart-app-service"
-formats:
-  - "restart-app-service {{ app_service }}"

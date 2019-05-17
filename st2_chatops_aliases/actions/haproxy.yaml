@@ -1,16 +1,21 @@
 ---
 name: haproxy
-pack: st2_chatops_aliases
-runner_type: "local-shell-script"
-description: haproxy service enable/disable
+description: run haproxy
+runner_type: local-shell-cmd
+entry_point: ""
 enabled: true
-entry_point: haproxy.sh
 parameters:
-  mode:
-    type: "string"
-    description: "enable/disable"
-    required: false
-  backend:
-    type: "string"
-    description: "backend host"
-    required: false
+  sudo:
+    immutable: true
+  kwarg_op:
+    immutable: true
+  timeout:
+    default: 6000
+  cmd:
+    description: "Command to run"
+    immutable: true
+    default: "~/git/itservice/infra/stackstorm/packs/st2_chatops_aliases/actions/haproxy.sh {{slack_arg}}"
+  slack_arg:
+    description: "slack_arg"
+    type: string
+    required: true

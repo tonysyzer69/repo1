@@ -1,0 +1,7 @@
+---
+name: restart-app
+pack: st2_chatops_aliases
+description: "restart app service"
+action_ref: "st2_chatops_aliases.restart-app"
+formats:
+  - "restart-app {{ slack_arg }}"

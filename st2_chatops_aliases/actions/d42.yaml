@@ -14,8 +14,8 @@ parameters:
   cmd:
     description: "Command to run"
     immutable: true
-    default: "~/git/itservice/infra/stackstorm/packs/st2_chatops_aliases/actions/d42.sh {{host}}"
-  host:
-    description: "host"
+    default: "~/git/itservice/infra/stackstorm/packs/st2_chatops_aliases/actions/d42.sh {{slack_arg}}"
+  slack_arg:
+    description: "slack_arg"
     type: string
     required: true

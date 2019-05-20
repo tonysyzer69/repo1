@@ -13,7 +13,7 @@ parameters:
     type: string
     description: Assignee.
     required: true
-  component:
+  components:
     type: array
     description: List of string components name.
     required: true

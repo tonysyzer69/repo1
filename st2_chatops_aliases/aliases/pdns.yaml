@@ -1,0 +1,7 @@
+---
+name: pdns
+pack: st2_chatops_aliases
+description: "Create PowerDNS A/CNAME record"
+action_ref: "st2_chatops_aliases.pdns"
+formats:
+  - "pdns {{ slack_arg }}"

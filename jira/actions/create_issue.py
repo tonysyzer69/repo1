@@ -14,7 +14,7 @@ class CreateJiraIssueAction(BaseJiraAction):
         data = {
             'project': {'key': project},
             'summary': summary,
-            'assignee': {'key': assignee},
+            'assignee': {'name': assignee},
             'components': components,
             'issuetype': {'name': type}
         }

@@ -1,7 +1,7 @@
 ---
 name: chatops.ansible_d42
 action_ref: st2_chatops_aliases.d42
-description: run d42
+description: CLI for Device42/StackStorm event-driven automation platform
 formats:
   - display: "d42 <slack_arg>"
     representation:

@@ -1,0 +1,30 @@
+---
+name: chatops.ansible_r2
+action_ref: st2_chatops_aliases.r2
+description: CLI for Device42/StackStorm event-driven automation platform
+formats:
+  - display: "r2 <slack_arg>"
+    representation:
+      - "r2 {{ slack_arg }}"
+result:
+  format: |
+    r2 `{{ execution.parameters.slack_arg }}`
+    {% if execution.result.stderr %}
+    *Exit Status*: `{{ execution.result.return_code }}`
+    *Stderr:* ```{{ execution.result.stderr }}```
+    *Stdout:*
+    {% endif %}
+    ```{{ execution.result.stdout }}```
+  extra:
+    slack:
+      color: "{% if execution.result.succeeded %}good{% else %}danger{% endif %}"
+      fields:
+        - title: Updated nodes
+          value: "{{ execution.result.stdout|regex_replace('(?!changed=1).', '')|wordcount }}"
+          short: true
+        - title: Executed in
+          value: ":timer_clock: {{ execution.elapsed_seconds | to_human_time_from_seconds }}"
+          short: true
+      footer: "{{ execution.id }}"
+      footer_icon: "https://stackstorm.com/wp/wp-content/uploads/2015/01/favicon.png"
+

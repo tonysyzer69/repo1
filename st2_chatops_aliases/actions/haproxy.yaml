@@ -14,8 +14,13 @@ parameters:
   cmd:
     description: "Command to run"
     immutable: true
-    default: "~/git/itservice/infra/stackstorm/packs/st2_chatops_aliases/actions/haproxy.sh {{slack_arg}}"
+    default: "~/git/itservice/infra/stackstorm/packs/st2_chatops_aliases/actions/haproxy.sh {{slack_arg}} {{user}}"
   slack_arg:
     description: "slack_arg"
     type: string
     required: true
+  user:
+    description: "slack user"
+    type: string
+    required: true
+    default: "{{action_context.api_user}}"
